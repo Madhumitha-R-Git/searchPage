@@ -1,0 +1,142 @@
+<section class="header">
+    
+    <img src='assets/images/Group 334.png' class="logo" alt='no'>
+</section>
+
+
+<div class="searchPlace">
+   <div class='backKey'>
+       <div class='backKeySymbol'></div>
+   </div>
+    <div >
+      <a href="" class="home">Back to Home </a>
+    </div>
+
+    <div class="searchByTextBox">
+       <input type='text' class='searchByTitle'  placeholder='searchtext1' name='searchtext1' autocomplete="off"  [(ngModel)]='searchtext1'>
+       <div class="searchIcon">
+      <mat-icon (click)="textsearchOn()">search_icon</mat-icon>
+    </div>
+    </div>
+
+    <div class="searchBoxes">
+
+        <div class="searchBoxOne">
+            <div class="searchByfilterone" >
+                 <p class="searchByfilteronetext">{{selectedlocationOptions}}</p>
+            </div>
+            <mat-icon class="dropDownOneDown">keyboard_arrow_down</mat-icon>
+            <mat-icon class="dropDownOneUp">keyboard_arrow_up</mat-icon>
+            <div class="locationOptions">
+                <div class="locationsearchbox">
+                  <input matInput type="text" placeholder="Search" class="check1" [(ngModel)]="searched_location">
+                  <button mat-button matSuffix mat-icon-button  class="searchicon_location">
+                    <mat-icon class="checker1">search</mat-icon>
+                  </button>
+                </div>
+                <mat-selection-list #selectedlocation [multiple]="false" class="optionsOfLocation" [(ngModel)]="selectedlocationOptions">
+                    <mat-list-option *ngFor="let location of listOfLocation| filter:searched_location" [value]="location">
+                      {{location}}
+                    </mat-list-option>
+                  </mat-selection-list>
+            </div>
+        </div>
+
+
+        <div class="searchBoxTwo">
+          <div class="searchByfiltertwo">
+                    <p class="searchByfiltertwotext">{{selectedtitleOptions}}</p>
+          </div>
+          <mat-icon class="dropDownTwoDown">keyboard_arrow_down</mat-icon>
+          <mat-icon class="dropDownTwoUp">keyboard_arrow_up</mat-icon>
+          <div class="titleOptions">
+                <div>
+                  <input type='text' class='searchByJobTitle' placeholder='search' name='searched_title' autocomplete="off" [(ngModel)]='searched_title'>
+                  <div class="searchicon_title">
+                      <mat-icon >search_icon</mat-icon>
+                  </div>
+                </div>
+              <mat-selection-list #selectedtitle [multiple]="false" class="optionsOfTitle" [(ngModel)]="selectedtitleOptions">
+                  <mat-list-option *ngFor="let title of listOfJobTitle| filter:searched_title" [value]="title">
+                    {{title}}
+                  </mat-list-option>
+                </mat-selection-list>
+          </div>
+      </div>
+
+
+
+      <div class="searchBoxThree">
+        <div class="searchByfilterthree">
+               <p class="searchByfilterthreetext">{{selectedCertificateOptions}}</p>
+        </div>
+        <mat-icon class="dropDownThreeDown">keyboard_arrow_down</mat-icon>
+        <mat-icon class="dropDownThreeUp">keyboard_arrow_up</mat-icon>
+        <div class="certificateOptions">
+              <div>
+                <input type='text' class='searchBycertificate' placeholder='search' name='searched_certificate' autocomplete="off"  [(ngModel)]='searched_certificate'>
+                <div class="searchicon_certificate">
+                    <mat-icon >search_icon</mat-icon>
+                </div>
+              </div>
+            <mat-selection-list #selectedcertificate [multiple]="false" class="optionsOfCertification" [(ngModel)]="selectedCertificateOptions">
+                <mat-list-option *ngFor="let certificate of listOfCertification | filter:searched_certificate" [value]="certificate">
+                  {{certificate}}
+                </mat-list-option>
+              </mat-selection-list>
+        </div>
+    </div>
+    </div>
+</div>
+
+<div class="displaySearch" [style.visibility]='searchdisplayvisibility'>
+  <div class="displayTypeSearch">
+    <p  class="textdisplay">{{searchtext1}}</p>
+  </div>
+  <mat-icon class="close_icon" (click)="textsearchOff()">close</mat-icon>
+      
+</div>
+<div>
+  <p class="result_details">List of profiles that matches your search queries <span>{{totalRecords}}</span></p>
+</div>
+<div class="tt">
+  <table CELLSPACING=0 >
+   <thead>
+
+      <th >Firstname</th>
+      <th >Lastname</th>
+      <th >Email address</th>
+      <th >Job title</th>
+      <th >Practice</th>
+      <th >Manager</th>
+      <th >Location</th>
+      <th >Action</th>
+
+   </thead>
+   
+    <tr *ngFor="let employeeinfo of employee |filter:chummatesting |  paginate:{itemsPerPage: resultperpageCount,currentPage:page,totalItems:totalRecords}">
+      <td>{{employeeinfo.firstname}}</td>
+      <td>{{employeeinfo.lastname}}</td>
+      <td>{{employeeinfo.email}}</td>
+      <td>{{employeeinfo.jobtitle}}</td>
+      <td>{{employeeinfo.practice}}</td>
+      <td>{{employeeinfo.manager}}</td>
+      <td>{{employeeinfo.location}}</td>
+      <td>{{employeeinfo.action}}</td>
+    </tr>
+  </table>
+</div>
+<div class="recentvisitedbox">
+    <div class="recentintrotext">
+      Recently visited profiles
+    </div>
+    <div class="recentdesignline">
+    </div>
+    <div class="profiledisplay">
+        
+    </div>
+</div>
+<div class="pagination">
+  <pagination-controls (pageChange)="page = $event"></pagination-controls>
+
+</div>

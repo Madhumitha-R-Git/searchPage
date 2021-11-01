@@ -24,9 +24,12 @@
             "tsConfig": "tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/data",
+              "src/assets/images/Group 334.png",
+              "src/assets/images/PresidioLogo_White_RGB_500px.png"
             ],
             "styles": [
+              "src/custom-theme.scss",
               "src/styles.css"
             ],
             "scripts": []
@@ -91,7 +94,9 @@
             "karmaConfig": "karma.conf.js",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/data",
+              "src/assets/images/Group 334.png",
+              "src/assets/images/PresidioLogo_White_RGB_500px.png"
             ],
             "styles": [
               "src/styles.css"

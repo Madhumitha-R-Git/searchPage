@@ -14,11 +14,16 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import {NgxPaginationModule} from 'ngx-pagination'; 
 import { HttpClientModule } from '@angular/common/http';
+import { FilterPipe } from 'src/filterpipe';
+import { PipesModule } from 'w-ng5';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SearchComponent
+    FilterPipe,
+    SearchComponent,
+    
+   
   ],
   imports: [
     BrowserModule,
@@ -35,6 +40,8 @@ import { HttpClientModule } from '@angular/common/http';
     Ng2SearchPipeModule,
     NgxPaginationModule,
     HttpClientModule,
+  
+    //PipesModule
 
   ],
   providers: [],

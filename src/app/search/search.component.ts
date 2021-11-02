@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, Pipe } from '@angular/core';
 import { Employee } from 'src/employee';
+import { VisitedProfile } from 'src/visitedProfile';
 import { SearchserviceService } from '../searchservice.service';
 
 @Component({
@@ -24,11 +25,14 @@ export class SearchComponent implements OnInit {
  listOfJobTitle:string[] = ['Senior software engineer','Senior cloud engineer','Technical architect','Solution architect','UI/UX designer']
  listOfCertification:string[]=['AWS solution architect associate','AWS solution architect professional','Harshicorp certification','Google UX certification','AWS cloud developer associate']
  suggestedKeyWords:string[]=['Technical architect','cloud engineer']
+ previousLabel:string= '<'
+ nextLabel:string= '>'
  totalRecords:number=0
  page:number=1
  employee:Employee[]=[];
+ visitedprofile:VisitedProfile[]=[]
  resultperpageCount=20;
- chummatesting="John"
+ filterMetadata = { count: 0 };
  
  textsearchOn()
  {
@@ -45,13 +49,20 @@ export class SearchComponent implements OnInit {
 }
 
   ngOnInit(): void {
-    this.searchservice.getdata().subscribe((res)=>
+    this.searchservice.getEmployeedata().subscribe((res)=>
   {
     this.employee=res
     this.totalRecords=this.employee.length
     console.log(this.employee)
     
   })
+  this.searchservice.getrecentlyvisiteddata().subscribe((res)=>
+  {
+    this.visitedprofile=res
+    console.log(this.visitedprofile)
+  })
+  console.log("sjdnasknd")
+  console.log(this.filterMetadata.count)
   }
 
 }

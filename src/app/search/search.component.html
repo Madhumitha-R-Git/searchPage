@@ -1,4 +1,5 @@
-<section class="header">
+<div class="container-fluid">
+  <section class="header">
     
     <img src='assets/images/Group 334.png' class="logo" alt='no'>
 </section>
@@ -28,14 +29,14 @@
             <mat-icon class="dropDownOneDown">keyboard_arrow_down</mat-icon>
             <mat-icon class="dropDownOneUp">keyboard_arrow_up</mat-icon>
             <div class="locationOptions">
-                <div class="locationsearchbox">
-                  <input matInput type="text" placeholder="Search" class="check1" [(ngModel)]="searched_location">
-                  <button mat-button matSuffix mat-icon-button  class="searchicon_location">
-                    <mat-icon class="checker1">search</mat-icon>
-                  </button>
+              <div>
+                <input type='text' class='searchByLocation' placeholder='search' name='searched_location' autocomplete="off" [(ngModel)]='searched_location'>
+                <div class="searchicon_location">
+                    <mat-icon >search_icon</mat-icon>
                 </div>
+              </div>
                 <mat-selection-list #selectedlocation [multiple]="false" class="optionsOfLocation" [(ngModel)]="selectedlocationOptions">
-                    <mat-list-option *ngFor="let location of listOfLocation| filter:searched_location" [value]="location">
+                    <mat-list-option *ngFor="let location of listOfLocation| appFilter:searched_location:filterMetadata" [value]="location">
                       {{location}}
                     </mat-list-option>
                   </mat-selection-list>
@@ -57,7 +58,7 @@
                   </div>
                 </div>
               <mat-selection-list #selectedtitle [multiple]="false" class="optionsOfTitle" [(ngModel)]="selectedtitleOptions">
-                  <mat-list-option *ngFor="let title of listOfJobTitle| filter:searched_title" [value]="title">
+                  <mat-list-option *ngFor="let title of listOfJobTitle| appFilter:searched_title:filterMetadata" [value]="title">
                     {{title}}
                   </mat-list-option>
                 </mat-selection-list>
@@ -80,7 +81,7 @@
                 </div>
               </div>
             <mat-selection-list #selectedcertificate [multiple]="false" class="optionsOfCertification" [(ngModel)]="selectedCertificateOptions">
-                <mat-list-option *ngFor="let certificate of listOfCertification | filter:searched_certificate" [value]="certificate">
+                <mat-list-option *ngFor="let certificate of listOfCertification | appFilter:searched_certificate:filterMetadata" [value]="certificate">
                   {{certificate}}
                 </mat-list-option>
               </mat-selection-list>
@@ -113,8 +114,8 @@
       <th >Action</th>
 
    </thead>
-   
-    <tr *ngFor="let employeeinfo of employee |filter:chummatesting |  paginate:{itemsPerPage: resultperpageCount,currentPage:page,totalItems:totalRecords}">
+ 
+    <tr *ngFor="let employeeinfo of employee| appFilter:searchtext1:filterMetadata |  paginate:{itemsPerPage: resultperpageCount,currentPage:page,totalItems:totalRecords}" class="tr">
       <td>{{employeeinfo.firstname}}</td>
       <td>{{employeeinfo.lastname}}</td>
       <td>{{employeeinfo.email}}</td>
@@ -124,19 +125,36 @@
       <td>{{employeeinfo.location}}</td>
       <td>{{employeeinfo.action}}</td>
     </tr>
+  
+ 
   </table>
 </div>
 <div class="recentvisitedbox">
-    <div class="recentintrotext">
-      Recently visited profiles
-    </div>
-    <div class="recentdesignline">
-    </div>
+  <div class="recentinnerbox">
+      <div class="recentintrotext">
+        Recently visited profiles
+      </div>
+      <div class="recentdesignline">
+      </div>    
+  </div>
+  <tr *ngFor="let profile of visitedprofile" cellspacing=0>
     <div class="profiledisplay">
-        
+        <p class="profilename">{{profile.firstname}}{{profile.lastname}}</p>
+        <p class="profiletitle">{{profile.title}}</p>
+        <p class="profiletimestamp">{{profile.timestamp}}</p>
     </div>
-</div>
-<div class="pagination">
-  <pagination-controls (pageChange)="page = $event"></pagination-controls>
+    
+  </tr>
+    
 
 </div>
+<div class="pagination">
+  <pagination-controls [previousLabel]="previousLabel"
+  [nextLabel]="nextLabel"(pageChange)="page = $event"></pagination-controls>
+
+</div>
+
+</div>
+
+
+

@@ -165,58 +165,43 @@ position:absolute;
 }
 .locationOptions
 {
-    margin-top:163px;
-    margin-left:723px;
+    top:173px;
+left:723px;
     width:292px;
-    background-color:mintcream;
-    border: 1px solid #D8D8D8;
+    border: 1px solid #AFAFAF;
+    color:black;
+background-color:white ;
+ 
 border-radius: 4px;
 display:none;
-color:black;
 position:absolute;
 }
-.locationsearchbox
+.searchByLocation
 {
- top:167px;
- left:726px;
- margin-top:10px;
- margin-left:15px;
- margin-right:15px;
-   
-    border-radius: 4px;
-    height:35px;
-}
-.check1{
-   
-      width:220px;
-      height:20px;
-      margin-top:0px;
-      border-radius: 4px;
-      
-    color:white;
-    border:0px solid white;
-   
-}
-
-.checker1
-{
-    margin-top:180px;
-    left: 1285px;
-    width:9px;
-    height:9px;
-    margin-top:0px;
-    margin-right:4px;
-  
-    
+    top:173px;
+    margin-right:16px;
+    margin-left:16px;
+    margin-top:10px;
+    margin-bottom:0px;
+    padding:0px;
+    left:1043px;
+     height:25px;
+     width:260px;
+     border: 1px solid var(--unnamed-color-d8d8d8);
+ background: #FAFAFA 0% 0% no-repeat padding-box;
+ border: 1px solid #D8D8D8;
+ border-radius: 4px;
 }
 .searchicon_location
 {
-   margin: 0px;
+    top:12px;
+    margin-left:248px;
+    position:absolute;
+    width:9px;
+    height:9px;
+  
+    margin-right:4px;
 }
-.optionsOfLocation{
-
-}
-
 .searchByfiltertwo
 {
     top: 123px;
@@ -294,12 +279,13 @@ background-color:white ;
 }
 .searchicon_title
 {
-    top:188px;
-    left: 1285px;
-    position:fixed;
+   
+    top:12px;
+    margin-left:248px;
+    position:absolute;
     width:9px;
     height:9px;
-    margin-top:0px;
+  
     margin-right:4px;
 }
 
@@ -396,13 +382,14 @@ background-color:white ;
 }
 .searchicon_certificate
 {
-    top:187px;
-    left: 1645px;
-    position:fixed;
+    top:12px;
+    margin-left:288px;
+    position:absolute;
     width:9px;
     height:9px;
     margin-top:0px;
     margin-right:4px;
+
 }
 .searchBoxThree:hover .dropDownThreeUp{
     display:block;
@@ -487,7 +474,8 @@ table
 left: 140px;
 width: 1333px;
 background: #F2F2F2 0% 0% no-repeat padding-box;
-
+border-collapse: collapse;
+overflow-x: auto;
 }
 ::-webkit-scrollbar {
     width: 0;  
@@ -496,14 +484,13 @@ background: #F2F2F2 0% 0% no-repeat padding-box;
 .tt
 {
     overflow-y:auto;
-    height:655px;
+  height:655px;
     top: 301px;
 left: 140px;
 width: 1333px;
     position:absolute;
     background-color: green;
     margin-bottom:0px;
-  
 }
 td,th{
     text-align:left;
@@ -519,7 +506,8 @@ tr:nth-child(odd) {
 thead
 {
     background: black 0% 0% no-repeat padding-box;
-    
+    position: sticky;
+  top: 0;
 }
 th{
     color:white;
@@ -538,6 +526,7 @@ opacity: 1;
 overflow-y:auto;
 position:absolute;
 
+
 }
 .recentintrotext
 {
@@ -545,10 +534,10 @@ position:absolute;
 
 width: 178px;
 height: 18px;
-margin-top:26px;
-margin-left:24px;
+padding-top:26px;
+padding-left:24px;
       height: 18px;
-  
+   
     font: var(--unnamed-font-style-normal) normal normal 14px/18px var(--unnamed-font-family-montserrat);
     text-align: left;
     font: normal normal normal 14px/18px Montserrat;
@@ -556,22 +545,32 @@ margin-left:24px;
     color: #5F6062;
     opacity: 1;
    
+    
+   
+   
+}
+.recentinnerbox
+{
+    position:sticky;
+    top:0px;
+    background-color: white;
+    height:67px;
 }
 .recentdesignline
 {
     width: 77px;
     height: 0px;
     margin-top:-10px;
-    margin-left:211px;
+     margin-left:211px;
     border: 1px solid var(--unnamed-color-d8d8d8);
     border: 1px solid #D8D8D8;
     opacity: 1;
-    position:absolute;
+   
     
 }
 .profiledisplay
 {
-   margin-top: 23px;
+ 
 margin-left: 24px;
 width: 263px;
 height: 97px;
@@ -579,7 +578,20 @@ background: var(--unnamed-color-fafafa) 0% 0% no-repeat padding-box;
 background: #FAFAFA 0% 0% no-repeat padding-box;
 border-radius: 4px;
 opacity: 1;
+margin-bottom: 20px;
 
+}
+.profilename
+{
+    margin-left: 16px;
+}
+.profiletitle
+{
+    margin-left: 16px;
+}
+.profiletimestamp
+{
+    margin-left: 16px;
 }
 .pagination
 {
@@ -587,7 +599,12 @@ opacity: 1;
 left: 140px;
 width: 1333px;
 height: 50px;
-background: red 0% 0% no-repeat padding-box;
+background: white 0% 0% no-repeat padding-box;
 opacity: 1;
 position:absolute;
+
+}
+.recentvisitedbox tr
+{
+   background-color: white;
 }
